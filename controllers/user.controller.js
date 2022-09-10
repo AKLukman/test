@@ -16,3 +16,12 @@ let users = [
 module.exports.getRandomUser = (req, res, next) => {
   res.json(users[Math.floor(Math.random() * users.length)]);
 };
+
+module.exports.getAllUser = (req, res, next) => {
+  const { limit } = req.query;
+  res.json(users.slice(0, limit));
+};
+
+module.exports.getHello = (req, res, next) => {
+  res.send("Hello");
+};
